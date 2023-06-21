@@ -71,7 +71,7 @@ export default function Home() {
           container
           justifyContent={"center"}
           style={{ padding: "1rem" }}
-          textAlign="center"
+          // textAlign="center"
         >
           <Grid
             item
@@ -84,7 +84,7 @@ export default function Home() {
               marginBottom: "1rem",
             }}
           >
-            <Typography variant="h4">{message.subject}</Typography>
+            <Typography variant="h5">{message.subject}</Typography>
             <Typography variant="subtitle1" textAlign={"left"}>
               {message.content}
             </Typography>

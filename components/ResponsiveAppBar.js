@@ -53,7 +53,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "dimgray" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link href={"/"}>
@@ -74,7 +74,6 @@ const ResponsiveAppBar = () => {
                   fontFamily: "monospace",
                   fontWeight: 700,
                   letterSpacing: ".3rem",
-                  color: router.route == "/" ? "cyan" : "inherit",
                   textDecoration: "none",
                 }}
               >
@@ -124,7 +123,7 @@ const ResponsiveAppBar = () => {
                 <a
                   onClick={() => handleCloseNavMenu()}
                   style={{
-                    color: router.route === "/inbox" ? "cyan" : "inherit",
+                    color: router.route === "/inbox" ? "orange" : "inherit",
                   }}
                 >
                   <MenuItem>
@@ -159,7 +158,6 @@ const ResponsiveAppBar = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: router.route === "/" ? "cyan" : "inherit",
               textDecoration: "none",
             }}
           >
@@ -180,7 +178,7 @@ const ResponsiveAppBar = () => {
                 onClick={() => handleCloseNavMenu("Inbox")}
                 style={{
                   my: 2,
-                  color: router.route === "/inbox" ? "cyan" : "inherit",
+                  color: router.route === "/inbox" ? "orange" : "inherit",
                   display: "block",
                 }}
               >

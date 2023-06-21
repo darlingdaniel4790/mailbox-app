@@ -24,6 +24,8 @@ export default function AlignItemsList({ message }) {
             variant="h5"
             color="text.primary"
             fontWeight={!message.isRead && 700}
+            sx={{ textDecoration: "underline" }}
+            mb={1}
           >
             {message.subject}
           </Typography>
