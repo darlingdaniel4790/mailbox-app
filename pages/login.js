@@ -67,7 +67,19 @@ export default function Home() {
         alignContent="center"
         justifyContent={"center"}
       >
-        <Grid item xs={8} md={5}>
+        <Grid item xs={9} sm={6} md={4}>
+          <Grid mb={5} mt={5}>
+            <Typography gutterBottom variant="h3">
+              Welcome to PorterMail
+            </Typography>
+            <Typography variant="h5" paragraph>
+              Please enter your login details.
+            </Typography>
+            <Typography variant="h5">
+              <span style={{ fontWeight: "bold" }}>New user?</span> Click the
+              switch below to signup. It only takes a second.
+            </Typography>
+          </Grid>
           <FormControl sx={{ m: 1 }} variant="outlined" fullWidth>
             <InputLabel htmlFor="email">Email</InputLabel>
             <OutlinedInput

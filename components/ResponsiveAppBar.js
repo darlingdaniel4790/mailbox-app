@@ -27,6 +27,7 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const router = useRouter();
   const [sideOpen, setSideOpen] = React.useState(false);
+  const siteName = "PorterMail";
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -77,7 +78,7 @@ const ResponsiveAppBar = () => {
                   textDecoration: "none",
                 }}
               >
-                HOME
+                {siteName}
               </Typography>
             </a>
           </Link>
@@ -101,47 +102,49 @@ const ResponsiveAppBar = () => {
                 <MenuIcon />
               )}
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              <Link href="/inbox">
-                <a
-                  onClick={() => handleCloseNavMenu()}
-                  style={{
-                    color: router.route === "/inbox" ? "orange" : "inherit",
-                  }}
-                >
-                  <MenuItem>
-                    <Badge
-                      badgeContent={context.unread && context.unread}
-                      color="error"
-                    >
-                      <Typography textAlign="center">Inbox</Typography>
-                    </Badge>
-                  </MenuItem>
-                </a>
-              </Link>
-              {/* {pages.map((page) => (
+            {loggedIn && (
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                <Link href="/inbox">
+                  <a
+                    onClick={() => handleCloseNavMenu()}
+                    style={{
+                      color: router.route === "/inbox" ? "orange" : "inherit",
+                    }}
+                  >
+                    <MenuItem>
+                      <Badge
+                        badgeContent={context.unread && context.unread}
+                        color="error"
+                      >
+                        <Typography textAlign="center">Inbox</Typography>
+                      </Badge>
+                    </MenuItem>
+                  </a>
+                </Link>
+                {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))} */}
-            </Menu>
+              </Menu>
+            )}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
             <Link href={"/"}>
@@ -168,7 +171,7 @@ const ResponsiveAppBar = () => {
                 component="a"
                 // href=""
               >
-                HOME
+                {siteName}
               </Typography>
             </Link>
           </Box>
@@ -182,14 +185,16 @@ const ResponsiveAppBar = () => {
                   display: "block",
                 }}
               >
-                <MenuItem>
-                  <Badge
-                    badgeContent={context.unread && context.unread}
-                    color="error"
-                  >
-                    <Typography textAlign="center">Inbox</Typography>
-                  </Badge>
-                </MenuItem>
+                {loggedIn && (
+                  <MenuItem>
+                    <Badge
+                      badgeContent={context.unread && context.unread}
+                      color="error"
+                    >
+                      <Typography textAlign="center">Inbox</Typography>
+                    </Badge>
+                  </MenuItem>
+                )}
               </a>
             </Link>
             {/* {pages.map((page) => (
